@@ -1,0 +1,36 @@
+{
+  "info": {
+    "name": "MediFlow - MS Core HCE",
+    "description": "API REST del microservicio de Historias Clinicas (JPA). base_url = http://localhost:8081",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "base_url", "value": "http://localhost:8081" }],
+  "item": [
+    {
+      "name": "Crear paciente",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/api/hce/pacientes",
+        "body": { "mode": "raw", "raw": "{\n  \"rut\": \"12345678-9\",\n  \"nombre\": \"Juan Perez\",\n  \"fechaNacimiento\": \"1990-05-20\",\n  \"prevision\": \"Fonasa\"\n}" }
+      },
+      "response": [
+        { "name": "Creado", "status": "Created", "code": 201,
+          "body": "{ \"id\": 1, \"rut\": \"12345678-9\", \"nombre\": \"Juan Perez\", \"fechaNacimiento\": \"1990-05-20\", \"prevision\": \"Fonasa\" }" }
+      ]
+    },
+    { "name": "Obtener paciente", "request": { "method": "GET", "url": "{{base_url}}/api/hce/pacientes/1" } },
+    { "name": "Listar pacientes", "request": { "method": "GET", "url": "{{base_url}}/api/hce/pacientes" } },
+    {
+      "name": "Registrar historia clinica",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/api/hce/historias",
+        "body": { "mode": "raw", "raw": "{\n  \"pacienteId\": 1,\n  \"diagnostico\": \"Hipertension\",\n  \"tratamiento\": \"Control mensual\",\n  \"medicoResponsable\": \"Dra. Lopez\"\n}" }
+      }
+    },
+    { "name": "Historial del paciente", "request": { "method": "GET", "url": "{{base_url}}/api/hce/pacientes/1/historias" } },
+    { "name": "Obtener historia", "request": { "method": "GET", "url": "{{base_url}}/api/hce/historias/1" } }
+  ]
+}

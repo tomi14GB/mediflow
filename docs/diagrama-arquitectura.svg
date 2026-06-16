@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="760" viewBox="0 0 900 760" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#555" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="760" fill="#ffffff"/>
+  <text x="450" y="34" text-anchor="middle" font-size="22" font-weight="bold" fill="#1a1a1a">Arquitectura de Microservicios — MediFlow</text>
+  <text x="450" y="56" text-anchor="middle" font-size="13" fill="#666">Frontend · BFF · 2 Microservicios · Persistencia independiente</text>
+
+  <!-- CAPA 1: FRONTEND -->
+  <rect x="60" y="78" width="780" height="96" rx="12" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+  <text x="450" y="104" text-anchor="middle" font-size="15" font-weight="bold" fill="#0C447C">Capa de Presentación — Frontend</text>
+  <text x="450" y="124" text-anchor="middle" font-size="12" fill="#185FA5">React (framework moderno) · Custom Hooks · Patrón Provider</text>
+  <rect x="320" y="132" width="260" height="34" rx="6" fill="#B5D4F4" stroke="#185FA5" stroke-width="0.8"/>
+  <text x="450" y="154" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0C447C">Portal MediFlow (pacientes / médicos)</text>
+
+  <!-- Flecha Frontend <-> BFF -->
+  <line x1="450" y1="174" x2="450" y2="212" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <rect x="318" y="183" width="264" height="20" rx="4" fill="#ffffff"/>
+  <text x="450" y="197" text-anchor="middle" font-size="11.5" fill="#444">Peticiones HTTP / API REST</text>
+
+  <!-- CAPA 2: BFF -->
+  <rect x="60" y="214" width="780" height="96" rx="12" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+  <text x="450" y="240" text-anchor="middle" font-size="15" font-weight="bold" fill="#085041">Capa Intermedia — BFF (Backend For Frontend)</text>
+  <text x="450" y="260" text-anchor="middle" font-size="12" fill="#0F6E56">Node.js + Express · Unifica respuestas · Reduce latencia de red</text>
+  <rect x="330" y="268" width="240" height="34" rx="6" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.8"/>
+  <text x="450" y="290" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#085041">BFF MediFlow</text>
+
+  <!-- Flechas BFF -> MS -->
+  <line x1="360" y1="310" x2="250" y2="372" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="540" y1="310" x2="650" y2="372" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="120" y="330" width="200" height="20" rx="4" fill="#ffffff"/>
+  <text x="220" y="344" text-anchor="middle" font-size="11.5" fill="#444">Comunicación API REST</text>
+  <rect x="580" y="330" width="200" height="20" rx="4" fill="#ffffff"/>
+  <text x="680" y="344" text-anchor="middle" font-size="11.5" fill="#444">Comunicación API REST</text>
+
+  <!-- CAPA 3: MICROSERVICIOS -->
+  <rect x="60" y="372" width="780" height="120" rx="12" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="7 4"/>
+  <text x="450" y="392" text-anchor="middle" font-size="12.5" fill="#666">Capa de Lógica de Negocio — Java Spring Boot</text>
+
+  <!-- MS-A -->
+  <rect x="95" y="402" width="320" height="78" rx="10" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+  <text x="255" y="428" text-anchor="middle" font-size="14" font-weight="bold" fill="#3C3489">Microservicio A — Core HCE</text>
+  <text x="255" y="448" text-anchor="middle" font-size="11.5" fill="#534AB7">Historias Clínicas Electrónicas</text>
+  <text x="255" y="466" text-anchor="middle" font-size="11.5" fill="#534AB7">Gestión · almacenamiento · recuperación</text>
+
+  <!-- MS-B -->
+  <rect x="485" y="402" width="320" height="78" rx="10" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <text x="645" y="428" text-anchor="middle" font-size="14" font-weight="bold" fill="#712B13">Microservicio B — Laboratorios</text>
+  <text x="645" y="448" text-anchor="middle" font-size="11.5" fill="#993C1D">Estudios urgentes · notificaciones</text>
+  <text x="645" y="466" text-anchor="middle" font-size="11.5" fill="#993C1D">Procesamiento separado del historial</text>
+
+  <!-- Flechas MS -> DB -->
+  <line x1="255" y1="480" x2="255" y2="558" stroke="#7F77DD" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <rect x="150" y="510" width="210" height="20" rx="4" fill="#ffffff"/>
+  <text x="255" y="524" text-anchor="middle" font-size="11.5" fill="#534AB7" font-weight="bold">Persistencia vía JPA</text>
+
+  <line x1="645" y1="480" x2="645" y2="558" stroke="#D85A30" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <rect x="520" y="510" width="250" height="20" rx="4" fill="#ffffff"/>
+  <text x="645" y="524" text-anchor="middle" font-size="11.5" fill="#993C1D" font-weight="bold">Procedimientos Almacenados (SPs)</text>
+
+  <!-- CAPA 4: PERSISTENCIA -->
+  <rect x="60" y="556" width="780" height="150" rx="12" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="7 4"/>
+  <text x="450" y="576" text-anchor="middle" font-size="12.5" fill="#666">Capa de Datos — PostgreSQL independiente por microservicio (sin monolito central)</text>
+
+  <!-- DB-A -->
+  <ellipse cx="255" cy="600" rx="90" ry="16" fill="#CECBF6" stroke="#534AB7" stroke-width="1"/>
+  <path d="M165 600 V662 a90 16 0 0 0 180 0 V600" fill="#CECBF6" stroke="#534AB7" stroke-width="1"/>
+  <ellipse cx="255" cy="600" rx="90" ry="16" fill="#CECBF6" stroke="#534AB7" stroke-width="1"/>
+  <text x="255" y="634" text-anchor="middle" font-size="13" font-weight="bold" fill="#3C3489">DB HCE</text>
+  <text x="255" y="652" text-anchor="middle" font-size="11" fill="#534AB7">PostgreSQL · JPA</text>
+
+  <!-- DB-B -->
+  <ellipse cx="645" cy="600" rx="90" ry="16" fill="#F5C4B3" stroke="#993C1D" stroke-width="1"/>
+  <path d="M555 600 V662 a90 16 0 0 0 180 0 V600" fill="#F5C4B3" stroke="#993C1D" stroke-width="1"/>
+  <ellipse cx="645" cy="600" rx="90" ry="16" fill="#F5C4B3" stroke="#993C1D" stroke-width="1"/>
+  <text x="645" y="634" text-anchor="middle" font-size="13" font-weight="bold" fill="#712B13">DB Laboratorios</text>
+  <text x="645" y="652" text-anchor="middle" font-size="11" fill="#993C1D">PostgreSQL · SPs</text>
+
+  <!-- Leyenda -->
+  <text x="60" y="734" font-size="11" fill="#666">Leyenda:</text>
+  <rect x="118" y="725" width="12" height="12" rx="2" fill="#B5D4F4"/><text x="136" y="735" font-size="11" fill="#444">Frontend</text>
+  <rect x="210" y="725" width="12" height="12" rx="2" fill="#9FE1CB"/><text x="228" y="735" font-size="11" fill="#444">BFF</text>
+  <rect x="275" y="725" width="12" height="12" rx="2" fill="#CECBF6"/><text x="293" y="735" font-size="11" fill="#444">MS Core HCE (JPA)</text>
+  <rect x="415" y="725" width="12" height="12" rx="2" fill="#F5C4B3"/><text x="433" y="735" font-size="11" fill="#444">MS Laboratorios (SPs)</text>
+  <text x="600" y="735" font-size="11" fill="#444">— — — Límite lógico de capa</text>
+</svg>

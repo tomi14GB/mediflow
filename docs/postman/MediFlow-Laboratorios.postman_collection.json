@@ -1,0 +1,34 @@
+{
+  "info": {
+    "name": "MediFlow - MS Laboratorios",
+    "description": "API REST del microservicio de Laboratorios (Stored Procedures). base_url = http://localhost:8082",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "base_url", "value": "http://localhost:8082" }],
+  "item": [
+    {
+      "name": "Registrar solicitud (SP)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/api/laboratorio/solicitudes",
+        "body": { "mode": "raw", "raw": "{\n  \"pacienteId\": 1,\n  \"tipoEstudio\": \"Hemograma\",\n  \"prioridad\": \"URGENTE\",\n  \"medicoSolicitante\": \"Dr. Soto\"\n}" }
+      },
+      "response": [
+        { "name": "Creado", "status": "Created", "code": 201,
+          "body": "{ \"id\": 1, \"pacienteId\": 1, \"tipoEstudio\": \"Hemograma\", \"prioridad\": \"URGENTE\", \"estado\": \"SOLICITADO\", \"medicoSolicitante\": \"Dr. Soto\" }" }
+      ]
+    },
+    {
+      "name": "Actualizar estado (SP)",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/api/laboratorio/solicitudes/1/estado",
+        "body": { "mode": "raw", "raw": "{ \"estado\": \"COMPLETADO\" }" }
+      }
+    },
+    { "name": "Solicitudes urgentes", "request": { "method": "GET", "url": "{{base_url}}/api/laboratorio/solicitudes/urgentes" } },
+    { "name": "Solicitudes del paciente", "request": { "method": "GET", "url": "{{base_url}}/api/laboratorio/pacientes/1/solicitudes" } }
+  ]
+}

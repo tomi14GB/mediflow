@@ -1,0 +1,52 @@
+{
+  "info": {
+    "name": "MediFlow - BFF",
+    "description": "Endpoints agregados del Backend For Frontend. Variable base_url = http://localhost:8080",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "base_url", "value": "http://localhost:8080" }],
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "{{base_url}}/health" },
+      "response": [
+        { "name": "OK", "originalRequest": { "method": "GET", "url": "{{base_url}}/health" },
+          "status": "OK", "code": 200, "body": "{ \"status\": \"UP\", \"servicio\": \"BFF MediFlow\" }" }
+      ]
+    },
+    {
+      "name": "Listar pacientes",
+      "request": { "method": "GET", "url": "{{base_url}}/api/pacientes" }
+    },
+    {
+      "name": "Ficha integral del paciente",
+      "request": { "method": "GET", "url": "{{base_url}}/api/pacientes/1/ficha" },
+      "response": [
+        { "name": "Ejemplo", "status": "OK", "code": 200,
+          "body": "{\n  \"paciente\": { \"id\": 1, \"nombre\": \"Juan Perez\", \"rut\": \"12345678-9\" },\n  \"historialClinico\": [{ \"id\": 10, \"diagnostico\": \"Hipertension\" }],\n  \"solicitudesLaboratorio\": [{ \"id\": 1, \"prioridad\": \"URGENTE\" }],\n  \"resumen\": { \"totalRegistrosClinicos\": 1, \"totalSolicitudes\": 1, \"solicitudesUrgentes\": 1 }\n}" }
+      ]
+    },
+    {
+      "name": "Registrar historia clinica",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/api/pacientes/1/historias",
+        "body": { "mode": "raw", "raw": "{\n  \"diagnostico\": \"Hipertension arterial\",\n  \"tratamiento\": \"Control mensual\",\n  \"medicoResponsable\": \"Dra. Lopez\"\n}" }
+      }
+    },
+    {
+      "name": "Panel del medico (urgentes)",
+      "request": { "method": "GET", "url": "{{base_url}}/api/laboratorio/panel-medico" }
+    },
+    {
+      "name": "Registrar solicitud de estudio",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/api/laboratorio/solicitudes",
+        "body": { "mode": "raw", "raw": "{\n  \"pacienteId\": 1,\n  \"tipoEstudio\": \"Hemograma\",\n  \"prioridad\": \"URGENTE\",\n  \"medicoSolicitante\": \"Dr. Soto\"\n}" }
+      }
+    }
+  ]
+}
