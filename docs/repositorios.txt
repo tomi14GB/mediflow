@@ -3,7 +3,7 @@ ENLACES A REPOSITORIOS GITHUB - PROYECTO MEDIFLOW
 DSY1106 Desarrollo Fullstack III - Evaluacion Parcial N3
 ==========================================================
 
-NOTA: Reemplazar <usuario-equipo> por el usuario/organizacion real de GitHub
+NOTA: Reemplazar <tomi14GB> por el usuario/organizacion real de GitHub
 antes de la entrega.
 
 1. REPOSITORIO PRINCIPAL
