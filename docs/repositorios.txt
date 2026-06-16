@@ -7,27 +7,27 @@ NOTA: Reemplazar <tomi14GB> por el usuario/organizacion real de GitHub
 antes de la entrega.
 
 1. REPOSITORIO PRINCIPAL
-   URL: https://github.com/<usuario-equipo>/mediflow
+   URL: https://github.com/tomi14GB/mediflow
    Proposito: Documentacion general del proyecto, diagrama de arquitectura,
    guias de despliegue e informe de pruebas. Punto de entrada del proyecto.
 
 2. REPOSITORIO FRONTEND
-   URL: https://github.com/<usuario-equipo>/mediflow-frontend
+   URL: https://github.com/tomi14GB/mediflow-frontend
    Proposito: Portal MediFlow (React). Custom Hooks, patron Provider y
    consumo del BFF. Incluye package.json y pruebas.
 
 3. REPOSITORIO BFF
-   URL: https://github.com/<usuario-equipo>/mediflow-bff
+   URL: https://github.com/tomi14GB/mediflow-bff
    Proposito: Backend For Frontend (Node.js/Express). Agrega las respuestas
    de los microservicios y expone una API unica al frontend.
 
 4. REPOSITORIO MICROSERVICIO CORE HCE
-   URL: https://github.com/<usuario-equipo>/mediflow-ms-core-hce
+   URL: https://github.com/tomi14GB/mediflow-ms-core-hce
    Proposito: Microservicio de Historias Clinicas Electronicas.
    Spring Boot + persistencia JPA sobre PostgreSQL. Incluye pruebas y JaCoCo.
 
 5. REPOSITORIO MICROSERVICIO LABORATORIOS
-   URL: https://github.com/<usuario-equipo>/mediflow-ms-laboratorios
+   URL: https://github.com/tomi14GB/mediflow-ms-laboratorios
    Proposito: Microservicio de estudios urgentes y notificaciones.
    Spring Boot + persistencia via Procedimientos Almacenados sobre PostgreSQL.
 
@@ -37,3 +37,4 @@ ESTRATEGIA DE VERSIONADO: Git Flow
 - develop: integracion continua del equipo
 - feature/*: desarrollo de cada funcionalidad
 ==========================================================
+
